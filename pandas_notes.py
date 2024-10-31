@@ -36,12 +36,17 @@ planet_radius = pd.Series([2439.7, 6051.8, 6371.0, 3390.0, 69911, 58232, 25362, 
 planet_colour = pd.Series(["grey", "golden brown", "blue", "red", "yellow, brown, red", "yellow, brown, grey", "cyan", "blue", "brown"])
 planet_fact = pd.Series(["Mercury takes roughly three Earth months to orbit the Sun", "A day is longer than a year on Venus", "Earth has a squishy interior", "The whole of Mars is as cold as the South Pole", "Jupiter's largest moon has a salty ocean that contains more water than on Earth", "Saturn's rings are 90% water", "You can't stand on Uranus", "Neptune is more than 30 times as far from the Sun as Earth", "Pluto isn't the only dwarf planet in our Solar System - we have six"])
 
-planets = pd.DataFrame({
-    "Planet names": planet_names,
-    "planet temperatures (in degrees Celcius)": planet_temp,
-    "Planet radius' (in km)": planet_radius,
-    "Planet colours": planet_colour,
-    "Fun fact about planet": planet_fact
+df = pd.DataFrame({
+    "names": planet_names,
+    "temp(°C)": planet_temp,
+    "radius(in km)": planet_radius,
+    "colours": planet_colour,
+    "fun fact": planet_fact
 })
 
-print(planets)
+df["Discovered by"]= ["Ptolemy","Ptolemy", "Babylonians", "Babylonians", "Babylonians", "Babylonians", "Babylonians", "William and Caroline Hershel", "John Couch Adams"]
+df["Planet discovery by year"] = ["3000BC",1610, "4.6b years ago",1877,1610,1655,1846,1946,1930]
+ 
+df = df.set_index("names")
+
+print(df)
